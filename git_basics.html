@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>Git と GitHub の基本 インフォグラフィック</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Yomogi&family=Zen+Kurenaido&display=swap');
+      
+      body {
+        font-family: 'Zen Kurenaido', 'Yomogi', 'Kaisei Decol', sans-serif;
+        background: #f8f9fa;
+        margin: 0;
+        padding: 20px;
+        color: #334155;
+      }
+      
+      /* ヘッダー */
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .header .title {
+        font-size: 32px;
+        font-weight: bold;
+        background: linear-gradient(45deg, #593C47, #F24405);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .header .date {
+        font-size: 14px;
+        color: #334155;
+      }
+      
+      /* 3カラムレイアウト */
+      .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        width: 100%;
+      }
+      
+      /* カード型コンポーネント */
+      .card {
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        position: relative;
+        backdrop-filter: blur(10px);
+        border: 1px dashed #F2C53D;
+      }
+      
+      /* セクション見出し */
+      h2 {
+        font-size: 18px;
+        color: #1e40af;
+        margin: 10px 0;
+        display: flex;
+        align-items: center;
+        font-family: 'Kaisei Decol', serif;
+      }
+      h2 .icon {
+        margin-right: 8px;
+      }
+      
+      /* 本文 */
+      p, li {
+        font-size: 14px;
+        line-height: 1.4;
+        font-family: 'Yomogi', cursive;
+      }
+      
+      /* キーワードの強調 */
+      .keyword {
+        background: linear-gradient(transparent 60%, #F2E63D 60%);
+        font-weight: bold;
+        padding: 0 2px;
+      }
+      
+      /* 手書き風の要素 */
+      .arrow {
+        position: absolute;
+        font-size: 24px;
+        color: #F25C05;
+        transform: rotate(-30deg);
+      }
+      
+      .note {
+        background: #F2E63D;
+        padding: 5px 10px;
+        border-radius: 8px;
+        transform: rotate(2deg);
+        display: inline-block;
+        margin: 10px 0;
+        box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      /* リスト装飾 */
+      ol {
+        padding-left: 20px;
+      }
+      ol li, ul li {
+        margin-bottom: 10px;
+        position: relative;
+      }
+      ol li strong, ul li strong {
+        color: #593C47;
+      }
+      
+      ul {
+        list-style-type: none;
+        padding-left: 5px;
+      }
+      ul li:before {
+        content: "✨";
+        margin-right: 8px;
+        color: #F2C53D;
+      }
+      
+      /* フッター */
+      footer {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 12px;
+        color: #334155;
+        border-top: 1px dashed #593C47;
+        padding-top: 10px;
+      }
+      
+      /* リンク */
+      a {
+        color: #F24405;
+        text-decoration: none;
+        position: relative;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      a:after {
+        content: " 🔗";
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="title">Git と GitHub の基本</div>
+      <div class="date">📅 作成日: 2023年5月1日</div>
+    </div>
+    
+    <div class="container">
+      <!-- 左カラム: Gitの基本と基本的なワークフロー -->
+      <div class="card">
+        <h2><span class="icon">📚</span> Gitとは</h2>
+        <p>Gitは<span class="keyword">バージョン管理システム</span>です。簡単に言えば「<span class="keyword">タイムマシン付きのノート</span>」で、プログラムの変更履歴を記録し、いつでも過去の状態に戻れるようにします。</p>
+        
+        <div class="note">📝 Gitはプログラマーの時間旅行機械！</div>
+        
+        <h2><span class="icon">🔄</span> 基本的なワークフロー</h2>
+        <ol>
+          <li><strong>git init</strong><br>新しいリポジトリを初期化します<br>✅ プロジェクトを始めるとき、一度だけ使います</li>
+          <li><strong>git add .</strong><br>変更をステージングエリアに追加します<br>✅ <span class="keyword">.</span> はすべての変更を追加する意味です</li>
+          <li><strong>git commit -m "メッセージ"</strong><br>ステージングエリアの変更を記録します<br>✅ メッセージには何を変更したかを書きます</li>
+          <li><strong>git status</strong><br>現在の状態を確認します<br>✅ 変更されたファイル、ステージング状況を表示</li>
+        </ol>
+      </div>
+      
+      <!-- 中央カラム: リモートリポジトリ操作とGitHubの説明 -->
+      <div class="card">
+        <h2><span class="icon">🌐</span> リモートリポジトリ操作</h2>
+        <ol>
+          <li><strong>git remote add origin &lt;URL&gt;</strong><br>リモートリポジトリを追加します<br>✅ GitHubのリポジトリと連携するときに使います</li>
+          <li><strong>git push</strong><br>ローカルの変更をリモートに送信します<br>✅ 初回は <span class="keyword">git push -u origin main</span> と指定</li>
+          <li><strong>git pull</strong><br>リモートの変更をローカルに取り込みます<br>✅ 共同作業するときに使います</li>
+        </ol>
+        
+        <h2><span class="icon">☁️</span> GitHubとは</h2>
+        <p>GitHubはGitリポジトリのホスティングサービスです。「<span class="keyword">冒険ノートを保管する雲の上の図書館</span>」のようなものです。</p>
+        
+        <div class="note">💡 GitHubはコードのSNS！</div>
+      </div>
+      
+      <!-- 右カラム: GitHubの利点、使い方、参考資料 -->
+      <div class="card">
+        <h2><span class="icon">✨</span> GitHubの主な利点</h2>
+        <ul>
+          <li><strong>バックアップ</strong>: コードをクラウドに保存</li>
+          <li><strong>共有</strong>: チームでの開発を容易にする</li>
+          <li><strong>公開</strong>: オープンソースプロジェクトへの貢献</li>
+          <li><strong>ポートフォリオ</strong>: 自分のコードを公開できる</li>
+        </ul>
+        
+        <h2><span class="icon">📋</span> Git/GitHubの基本的な使い方</h2>
+        <ol>
+          <li>ローカルでファイルを編集する</li>
+          <li><strong>git add .</strong> で変更をステージングに追加</li>
+          <li><strong>git commit -m "変更内容"</strong> で変更を記録</li>
+          <li><strong>git push</strong> でGitHubに変更をアップロード</li>
+        </ol>
+        
+        <h2><span class="icon">📚</span> 参考資料</h2>
+        <ul>
+          <li><a href="https://git-scm.com/" target="_blank">Git公式サイト</a></li>
+          <li><a href="https://docs.github.com/ja" target="_blank">GitHub Docs</a></li>
+          <li><a href="https://backlog.com/ja/git-tutorial/" target="_blank">Git入門ガイド</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <footer>
+      <p>🔍 出典: Git公式サイト、GitHub Docs | 🖌️ グラフィックレコーディング風にまとめました</p>
+    </footer>
+  </body>
+</html> 
