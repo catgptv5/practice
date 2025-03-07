@@ -34,6 +34,13 @@
    git checkout -b 新しい技術名
    ```
 
+3. **GitHub**: 冒険の記録をクラウドに保存し、他の冒険者と共有することができます。
+   ```
+   git remote add origin https://github.com/あなたのユーザー名/リポジトリ名.git
+   git push -u origin main
+   ```
+   詳細は `github-setup.md` ファイルを参照してください。
+
 ## 📝 学習のヒント
 
 1. **一度に一つのスキル**: 一度に多くを学ぼうとせず、一つのスキルに集中しましょう。
@@ -43,6 +50,16 @@
 
 ## 🏆 冒険の終わり
 最終的には、自分でWEBアプリケーションを設計・開発・デプロイできるようになることが目標です。冒険の終わりには「伝説の装備」が待っています。
+
+## 📚 学習リソース
+
+### HTML基礎
+- MDN Web Docs: https://developer.mozilla.org/ja/docs/Web/HTML
+- W3Schools: https://www.w3schools.com/html/
+
+### Git & GitHub
+- Git公式: https://git-scm.com/book/ja/v2
+- GitHub Docs: https://docs.github.com/ja
 
 ---
 
